@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "..\\Scribe-master"
+		},
+		{
+			"path": "..\\..\\..\\..\\Infinity solution\\login\\Login_v12\\Login_v12\\fonts\\montserrat"
+		},
+		{
+			"path": "..\\..\\..\\..\\Infinity solution\\login\\Login_v12\\Login_v12\\fonts\\poppins"
+		},
+		{
+			"path": "..\\..\\..\\..\\Infinity solution\\login\\Login_v12\\Login_v12\\fonts\\raleway"
+		},
+		{
+			"path": "..\\..\\..\\..\\Infinity solution\\login\\Login_v12\\Login_v12\\fonts\\font-awesome-4.7.0"
+		},
+		{
+			"path": "..\\..\\..\\..\\Infinity solution\\login\\Login_v12\\Login_v12\\fonts\\Linearicons-Free-v1.0.0"
+		}
+	],
+	"settings": {}
+}

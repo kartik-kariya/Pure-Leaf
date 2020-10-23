@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign up </title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="img">
+			<img src="../../assets/bg.svg">
+		</div>
+		<div class="login-content">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+				<img src="../../assets/avatar.svg">
+        <h2 class="title">Sign Up</h2>
+        
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fa fa-user"></i>
+           		   </div>
+           		   <div class="div">
+                  <input type="text" class="form-control" placeholder="First Name" [formControl]="myForm.controls['firstName']">
+					  </div>
+            
+           </div>
+           
+           <div class="input-div one">
+            <div class="i">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="div">
+              <input type="text" class="form-control" placeholder="Last Name" [formControl]="myForm.controls['lastName']">
+      </div>
+      
+     </div>
+
+
+           <div class="alert alert-danger" *ngIf="(!myForm.controls['firstName'].valid && !myForm.controls['lastName'].valid) && (myForm.controls['firstName'].touched || myForm.controls['lastName'].touched)">
+            First and Last name are required
+          </div>
+
+          <div class="input-div one">
+            <div class="i">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <div class="div">
+              <input type="email" placeholder="Enter your email" class="form-control" [formControl]="myForm.controls['email']">
+      </div>
+     </div>
+     <div class="alert alert-danger" *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched">
+      A valid email is required
+    </div>
+
+
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fa fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+                  <input type="password" class="form-control" placeholder="Password" [formControl]="myForm.controls['password']">
+				   </div>
+        </div>
+
+        <div class="input-div pass">
+          <div class="i"> 
+             <i class="fa fa-lock"></i>
+          </div>
+          <div class="div">
+            <input type="password" class="form-control" placeholder="Confirm Password" [formControl]="myForm.controls['confirmPassword']">
+   </div>
+</div>
+        
+        <div class="alert alert-danger" *ngIf="!myForm.controls['password'].valid && myForm.controls['password'].touched">
+          Password should be atleast 8 characters long.
+        </div>
+            	<a routerLink="/login">Allready have Account?</a>
+              <button type="submit" class="btn btn-block btn-warning" [disabled]="!myForm.valid">Submit</button>
+            </form>
+		</div>
+		<div class="alert alert-success" *ngIf="message.length > 0">
+			You have been logged in successfully.
+		  </div>
+		  <div class="alert alert-danger" *ngIf="userError">
+			{{ userError.message }}
+		  </div>
+    </div>
+	
+</body>
+
+</html>

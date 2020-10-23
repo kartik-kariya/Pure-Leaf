@@ -1,0 +1,78 @@
+<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+	const inputs = document.querySelectorAll(".input");
+
+
+function addcl(){
+let parent = this.parentNode.parentNode;
+parent.classList.add("focus");
+}
+
+function remcl(){
+let parent = this.parentNode.parentNode;
+if(this.value == ""){
+	parent.classList.remove("focus");
+}
+}
+
+
+inputs.forEach(input => {
+input.addEventListener("focus", addcl);
+input.addEventListener("blur", remcl);
+});
+</script>
+<body>
+	<div class="container">
+		<div class="img">
+			<img src="../../assets/bg.svg">
+		</div>
+		<div class="login-content">
+			<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+				<img src="../../assets/avatar.svg">
+				<h2 class="title">Login</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fa fa-user"></i>
+           		   </div>
+           		   <div class="div">
+					<input type="email" class="form-control" placeholder="Enter email" name="email" [formControl]="myForm.controls['email']">
+					  </div>
+				   </div>
+				   <div class="alert alert-danger" *ngIf="!myForm.controls['email'].valid && myForm.controls['email'].touched">
+					A valid Email is required.
+				  </div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fa fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+					<input type="password" class="form-control" placeholder="Enter password" name="password" [formControl]="myForm.controls['password']">
+				   </div>
+				  
+				</div>
+				<div class="alert alert-danger" *ngIf="!myForm.controls['password'].valid && myForm.controls['password'].touched">
+					Password is required.
+				  </div>
+				<a routerLink="/forgetpassword">Forgot Password?</a>
+				<div class="alert alert-danger" *ngIf="userError">
+					{{ userError.message }}
+				  </div>
+				<button type="submit" class="btn btn-block btn-warning round" [disabled]="!myForm.valid">Submit</button>
+				
+				<div class="formGroup">
+					<input type="image" style="border: solid 1px #38D39F; border-radius: 30px;" width="98%" src="/assets/gdata.png" (click)="gbtn.click()" alt="Signin With Gmail">
+					<button type="button" class="btn googleBtn" #gbtn hidden (click)="authService.GoogleAuth()"></button>
+								  
+				</div>
+				  
+			</form>
+			
+		</div>
+		
+		
+		 
+    </div>
+	
+</body>
